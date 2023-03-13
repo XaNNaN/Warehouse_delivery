@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Flask
+{% endblock %}
+
+{% block body%}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="content">
+        <p> Ошибка в подключении к базе данных.</p>
+        <a href="{{ url_for('main_page') }}">Главное меню </a>
+    </div>
+</div>
+{% endblock %}

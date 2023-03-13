@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block title%}
+доступ
+{% endblock%}
+
+{% block body%}
+<div class="container">
+    <div class="title">У вас нет доступа к данной странице.</div>
+    <div class="content">
+        <a href="{{ url_for('main_page') }}">Главное меню </a>
+    </div>
+</div>
+{% endblock%}

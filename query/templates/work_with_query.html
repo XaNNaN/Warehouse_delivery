@@ -1,0 +1,38 @@
+
+{% extends 'base.html'%}
+
+{% block title%}
+WorkWithQuery
+{% endblock %}
+
+{% block body%}
+    <div class="container">
+        <div class="title">Работа с запросами</div>
+        <div class="content">
+            <ul>
+                <li>
+                    <a href="{{ url_for('query.prefix') }}">Поставщики по телефонному коду </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('query.conc_date') }}">Поставщики по дате договора </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('query.pr_higher') }}">Продукты выше минимальной цены </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('query.pr_category') }}">Продукты из одной категории  </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('query.prov_del') }}">Все доставки одного поставщика </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('query.pr_less') }}">Продукты по максимальному количеству </a>
+                </li>
+            </ul>
+        </div>
+        <div class="title">Обратно в главное меню</div>
+        <li>
+            <a href="{{ url_for('main_page') }}">Главное меню </a>
+        </li>
+    </div>
+{% endblock%}

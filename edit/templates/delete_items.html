@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+
+
+
+{% block body%}
+<div class="container">
+    <div class="title">Удаление поставщиков</div>
+    <div class="content">
+        <li>
+                <a href="{{ url_for('main_page') }}">Главное меню </a>
+        </li>
+        <li>
+                <a href="{{ url_for('edit.add_provider') }}">Добавить поставщика </a>
+        </li>
+        {% if items%}
+        <table border=0 width=50%>
+            {% for head in heads %}
+            <th> {{head}} </th>
+            {% endfor %}
+        {% for item in items %}
+            <tr>
+                <td>{{item['name']}}</td>
+                <td>{{item['city']}}</td>
+                <td>{{item['telephone']}}</td>
+                <td>{{item['conclusion_date']}}</td>
+                <td>{{item['contract_id']}}</td>
+                <td>
+                    <form action="" method=POST>
+                        <input type=hidden name="id_prov" value="{{ item['id_prov'] }}">
+                        <input type=submit name="action" value="Удалить">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+        {% else %}
+        <p> Нет поcтавщиков</p>
+        {% endif %}
+        {% if error == -2%}
+        <p> Либо поставщика, которого вы пытались удалить, уже нет, либо его удалять нельзя</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock%}

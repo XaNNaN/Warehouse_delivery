@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block title%}
+роль
+{% endblock%}
+
+{% block body%}
+<div class="container">
+    <div class="title">Результат авторизации</div>
+    <div class="content">
+        {{result}}
+        <li>
+                <a href="{{ url_for('main_page') }}">Главное меню </a>
+        </li>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Products in category
+{% endblock %}
+
+{% block body%}
+<div class="container">
+    <div class="title">Продукты из одной категории</div>
+    <div class="content">
+        <form action="" method="post" class="form">
+            <input type="text" placeholder="категория" name="category" required>
+            <input type="submit" value="отправить">
+        </form>
+        <ul>
+            <li>
+                <a href="{{ url_for('query.work_with_query_page') }}">Работа с запросами </a>
+            </li>
+        </ul>
+    </div>
+        {% if Method == 'POST' %}
+            <table border="1">
+                <tr>
+                    {% for key in first_line %}
+                         <td> {{key}}</td>
+                    {% endfor %}
+                 </tr>
+                 {% for line in result%}
+                <tr>
+                    {% for key, value in line.items() %}
+                        <td> {{value}}</td>
+                    {% endfor %}
+                </tr>
+                 {% endfor %}
+             </table>
+        {% endif%}
+    {% if error == 2 %}
+    Нет подходящих результатов.
+    {% endif %}
+    {% if error == 3 %}
+    Ошибка в подключении к базе данных.
+    {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Providers selected on telephone prefix
+{% endblock %}
+
+{% block body%}
+<div class="container">
+    <div class="title">Поставщики по телефонному коду</div>
+    <div class="content">
+        <form action="" method="post" class="form">
+            <input type="number" max="500" min="400" placeholder="код" name="prefix" required>
+            <input type="submit" value="Отправить">
+        </form>
+        <ul>
+            <li>
+                <a href="{{ url_for('query.work_with_query_page') }}">Работа с запросами </a>
+            </li>
+        </ul>
+    </div>
+        {% if Method == 'POST' %}
+            <table border="1">
+                <tr>
+                    {% for key in first_line %}
+                         <td> {{key}}</td>
+                    {% endfor %}
+                 </tr>
+                 {% for line in result%}
+                <tr>
+                    {% for key, value in line.items() %}
+                        <td> {{value}}</td>
+                    {% endfor %}
+                </tr>
+                 {% endfor %}
+             </table>
+        {% endif%}
+    {% if error == 2 %}
+    Нет подходящих результатов.
+    {% endif %}
+    {% if error == 3 %}
+    Ошибка в подключении к базе данных
+    {% endif %}
+
+
+</div>
+{% endblock %}

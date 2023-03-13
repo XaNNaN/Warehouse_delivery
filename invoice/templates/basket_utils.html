@@ -1,0 +1,41 @@
+{%  macro render_item(item, show_form=False)%}
+<div style="border-style: solid; border-color:red; margin: 10px">
+    <p>
+        <span>Название: {{ item['name']}}</span>
+        <span>Единицы измерения: {{ item['unit_of_measurment']}}</span>
+        <span>Категория: {{ item['category']}}</span>
+        <span>Материал: {{ item['material']}}</span>
+    </p>
+    {% if show_form %}
+    <form action="" method="post">
+        <input type="number" name="unit_price" min="1" required placeholder="цена за единицу">
+        <input type="number" name="quantity" min="1" required placeholder="количество" >
+        <input type="hidden" name="id_product_info" value="{{ item['id_product_info']}}">
+        <input type="submit" value="Добавить">
+    </form>
+    {% else %}
+    <p>
+        <span>Количество: {{ item['quantity']}}</span>
+        <span>Цена за единицу: {{ item['unit_price']}}</span>
+    </p>
+    {% endif %}
+</div>
+{% endmacro %}
+
+
+{%  macro render_provider(item)%}
+<div style="border-style: solid; border-color:red; margin: 10px">
+    <p>
+        <span>Имя: {{ item['name']}}</span>
+        <span>Город: {{ item['city']}}</span>
+        <span>Телефон: {{ item['telephone']}}</span>
+        <span>Дата заключения контракта: {{ item['conclusion_date']}}</span>
+        <span>ID контракта: {{ item['contract_id']}}</span>
+    </p>
+    <form action="" method="post">
+        <input type="hidden" name="id_prov" value="{{ item['id_prov']}}">
+        <input type="hidden" name="prov_name" value="{{ item['name']}}">
+        <input type="submit" value="Выбрать">
+    </form>
+</div>
+{% endmacro %}

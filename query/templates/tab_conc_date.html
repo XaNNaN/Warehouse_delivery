@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{% block title%}
+prov_conc
+{% endblock%}
+{% block body%}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="title">Поставщики по дате договора</div>
+    <div class="content">
+        <form action="" method="post" class="form">
+            <input type="number" min="1900" max="2098" placeholder="Год" name="year" required>
+            <input type="number" min="1" max="12" placeholder="Месяц" name="month" required>
+        <input type="submit" value="Отправить">
+        </form>
+        <ul>
+            <li>
+                <a href="{{ url_for('query.work_with_query_page') }}">Работа с запросами </a>
+            </li>
+        </ul>
+    </div>
+    {% if Method == 'POST' %}
+        <table border="1">
+            <tr>
+                {% for key in first_line %}
+                    <td> {{key}}</td>
+                {% endfor %}
+            </tr>
+            {% for line in result%}
+                <tr>
+                    {% for key, value in line.items() %}
+                        <td> {{value}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+    {% if error == 2 %}
+    Нет подходящих результатов.
+    {% endif %}
+    {% if error == 3 %}
+    Ошибка в подключении к базе данных.
+    {% endif %}
+
+</div>
+
+{% endblock%}

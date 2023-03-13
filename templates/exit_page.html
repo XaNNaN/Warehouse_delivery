@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Выход
+{% endblock%}
+
+{% block body%}
+<div class="container">
+    <div class="title">Выход из системы</div>
+    <div class="content">
+        Спасибо до свидания!
+        <li>
+                <a href="{{ url_for('main_page') }}">Главное меню </a>
+        </li>
+    </div>
+</div>
+{% endblock%}

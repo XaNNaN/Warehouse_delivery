@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%} {% endblock%}</title>
+
+    <style>
+        .container {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+
+            max-width: 800px;
+            padding: 10px 15px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 2em;
+        }
+
+        ul {
+            list-style: circle;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    {% block body%} {% endblock%}
+</body>
+</html>

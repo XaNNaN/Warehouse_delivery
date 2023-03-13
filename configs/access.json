@@ -1,0 +1,23 @@
+{
+  "typical": [
+    "auth",
+    ""
+  ],
+  "admin": [
+    "query",
+    "auth",
+    "edit",
+    "basket",
+    ""
+  ],
+    "manager": [
+    "query",
+    "auth",
+    "basket",
+    "edit",
+    ""
+  ],
+  "unauthorized": [
+    "auth"
+  ]
+}

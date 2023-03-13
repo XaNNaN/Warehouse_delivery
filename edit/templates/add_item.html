@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+
+
+{% block body%}
+<div class="container">
+    <div class="title">Укажите параметры нового поставщика</div>
+    <form action="" method="post">
+        <input type=text name="name" placeholder="имя" required> <br> <br>
+        <input type=text name="city" placeholder="город" required> <br> <br>
+        <input type=text name="telephone" placeholder="телефон" required> <br> <br>
+        <input type=date name="conclusion_date" placeholder="дата заключения контракта" required> <br> <br>
+        <input type=text name="contract_id" placeholder="ID контракта" required> <br> <br>
+        <input type=submit name="insert" value="Добавитиь" >
+
+    </form>
+    {% if error == -2%}
+        <p> Либо поставщик с таким ID контракта уже существует, либо произошла ошибка в подключении к базе данных.</p>
+    {% endif %}
+</div>
+{% endblock%}

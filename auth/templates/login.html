@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block title%}
+auth
+{% endblock %}
+
+{% block body%}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="content">
+        <form action="" method="post">
+            <input type="text" name="login" placeholder="логин" required>
+            <input type="password" name="password" placeholder="пароль" required>
+
+            <div class="buttons">
+                    <input type="submit" name='sub' value="Войти">
+            </div>
+        </form>
+
+        {% if error == 3 %}
+        Ошибка в подключении к базе данных.
+        {% endif %}
+                <a href="{{ url_for('main_page') }}">Главное меню </a>
+    </div>
+</div>
+{% endblock %}

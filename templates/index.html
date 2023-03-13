@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Главное меню
+{% endblock%}
+
+{% block body%}
+<div class="container">
+    <div class="title">Главное меню</div>
+    <div class="content">
+        <ul>
+            <li>
+                <a href="{{ url_for('query.work_with_query_page') }}">Работа с запросами </a>
+            </li>
+            <li>
+                <a href="{{ url_for('auth.login') }}">Авторизация </a>
+            </li>
+            <li>
+                <a href="{{ url_for('edit.delete_provider') }}">Удалить поставщика </a>
+            </li>
+            <li>
+                <a href="{{ url_for('basket.choose_provider') }}">Оформить поставку </a>
+            </li>
+            <li>
+                <a href="{{ url_for('exit_page')}}"> Выход из системы</a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock%}
